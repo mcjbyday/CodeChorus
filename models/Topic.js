@@ -15,8 +15,8 @@ Topic.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    body: {
-      type: DataTypes.STRING,
+    post_body: {
+      type: DataTypes.TEXT,
     },
     date_created: {
       type: DataTypes.DATE,

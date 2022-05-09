@@ -1,14 +1,14 @@
 [
   {
-    "name": "Tails",
-    "description": "Most worthwhile things in life have long tails. Compound interest, relationships, and opportunities all have long tails. This essentially means they progress painfully slowly at their outset, and over long stretches of time they mature and yield massive outsized returns."
+    "title": "Tails",
+    "post_body": "Most worthwhile things in life have long tails. Compound interest, relationships, and opportunities all have long tails. This essentially means they progress painfully slowly at their outset, and over long stretches of time they mature and yield massive outsized returns."
   },
   {
-    "name": "Phony Data Generator",
-    "description": "It would be pretty cool if there was a tool that populated phony data using a content topic, a writer voice, and their mood."
+    "title": "Phony Data Generator",
+    "post_body": "It would be pretty cool if there was a tool that populated phony data using a content topic, a writer voice, and their mood."
   },
   {
-    "name": "Code is Challenging",
-    "description": "Sometimes code can be challenging. It's ultimately work and that's why they have to pay people to do it, otherwise it'd purely be there for recreation."
+    "title": "Code is Challenging",
+    "post_body": "Sometimes code can be challenging. It's ultimately work and that's why they have to pay people to do it, otherwise it'd purely be there for recreation."
   }
 ]
