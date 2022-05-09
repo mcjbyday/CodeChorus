@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Amy",
+    "email": "amy@soundcloud.com",
+    "password": "hunter1"
+  },
+  {
+    "name": "Barry",
+    "email": "bigbarr33@gmail.com",
+    "password": "hunter2"
+  },
+  {
+    "name": "Charlie",
+    "email": "charliecharlie@basedgod.com",
+    "password": "hunter3"
+  }
+]
