@@ -6,26 +6,24 @@ router.get('/', async (req, res) => {
   try {
     // Get all topics and JOIN with user data
     const topicData = await Topic.findAll({
-      // include: [
-      //   {
-      //     model: [User],
-      //     attributes: ['name'],
-      //   },
-      // ],
+      include: [
+        {
+          model: [User],
+          attributes: ['name'],
+        },
+      ],
       include: [User]
     });
 
     // Serialize data so the template can read it
     const topics = topicData.map((topic) => topic.get({ plain: true }));
-    console.log("Topics Object: "+ JSON.stringify(topics));
-
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      topics: topics, 
+      topics, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
-    console.log("Here's your problem get /!"+ err);
+    console.log(err)
     res.status(500).json(err);
   }
 });
@@ -48,7 +46,7 @@ router.get('/topic/:id', async (req, res) => {
       logged_in: req.session.logged_in
     });
   } catch (err) {
-    console.log("Here's your problem get a topic ID!")
+    console.log(err)
     res.status(500).json(err);
   }
 });
@@ -69,7 +67,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       logged_in: true
     });
   } catch (err) {
-    console.log("Here's your problem get a dashboard!")
+    console.log(err)
     res.status(500).json(err);
   }
 });

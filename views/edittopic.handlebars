@@ -1,12 +1,12 @@
 
 <form class="form edit-topic-form">
   <div class="form-group">
-    <label for="topic-name">Topic name:</label>
-    <input class="form-input" type="text" id="topic-name" name="topic-name" value="{{title}}" />
+    <label for="topic-name">Topic:</label>
+    <input class="form-input" type="text" id="topic-name" name="topic-name" value="{{title}}" />{{title}}
   </div>
   <div class="form-group">
-    <label for="topic-desc">description:</label>
-    <textarea class="form-input" id="topic-desc" name="topic-desc"></textarea>
+    <label for="topic-desc">Post:</label>
+    <textarea class="form-input" id="topic-desc" name="topic-desc">{{post_body}}</textarea>
   </div>
   <div class="form-group">
     <button type="submit" class="btn btn-secondary">Update</button>
