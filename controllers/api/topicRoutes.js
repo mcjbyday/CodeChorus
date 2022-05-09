@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Topic } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newTopic = await Topic.create({
       ...req.body,
@@ -14,7 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const topicData = await Topic.destroy({
       where: {

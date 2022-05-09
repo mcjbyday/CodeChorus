@@ -23,7 +23,7 @@
 
 <h2 id="project-desc">Description</h2>
 
-CodeChorus is a technology forum that provides individuals interested in technology with a platform for the dissemination of software development ideas and the discussion of perspectives.  
+CodeChorus is a technology forum that provides individuals interested in technology with a platform for the dissemination of software development ideas and the discussion of varying perspectives.  
 
 <p style='text-align: right;'><a href="#project-title">Back to Top</a></p>
 
