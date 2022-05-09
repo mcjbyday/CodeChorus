@@ -10,7 +10,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3001;
 
 // Configure Handlebars.js engine with custom helper functions for value display
 const hbs = exphbs.create({ helpers });
@@ -28,8 +28,13 @@ const sess = {
 
 app.use(session(sess));
 
+// Configure templating engine handlebars with Express.js
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 

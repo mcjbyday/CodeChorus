@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CordChorus</title>
-  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
+  <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -13,19 +13,19 @@
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <span role="img" aria-label="money">💸</span>
+        <span role="img" aria-label="invader">👾</span>
         <a href="/">CodeChorus</a>
       </h1>
       <h3 style="font-style:italic">Your trusted home for tech tawk.</h3>
-      {{!-- <nav>
+      <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/dashboard">dashboard</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
-      </nav> --}}
+      </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
@@ -37,9 +37,9 @@
   </div>
 
   <!-- Render script for logged in users only -->
-  {{!-- {{#if logged_in}}
+  {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{/if}} --}}
+  {{/if}}
 </body>
 
 </html>
