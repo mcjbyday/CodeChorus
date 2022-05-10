@@ -1,35 +1,36 @@
 const router = require('express').Router();
-const { Topic} = require('../../models');
+const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newTopic = await Topic.create({
+    const newComment = await Comment.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newTopic);
+    res.status(200).json(newComment);
   } catch (err) {
+      console.log(err)
     res.status(400).json(err);
   }
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const topicData = await Topic.destroy({
+    const commentData = await Comment .destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!topicData) {
-      res.status(404).json({ message: 'No topic found by that id!' });
+    if (!commentData) {
+      res.status(404).json({ message: 'No comment found by that id!' });
       return;
     }
 
-    res.status(200).json(topicData);
+    res.status(200).json(commentData);
   } catch (err) {
     res.status(500).json(err);
   }

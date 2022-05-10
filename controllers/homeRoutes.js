@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Topic, User } = require('../models');
+const { Topic, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -8,11 +8,10 @@ router.get('/', async (req, res) => {
     const topicData = await Topic.findAll({
       include: [
         {
-          model: [User],
+          model: User,
           attributes: ['name'],
         },
-      ],
-      include: [User]
+      ]
     });
 
     // Serialize data so the template can read it
@@ -36,12 +35,39 @@ router.get('/topic/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+        },
       ],
     });
 
     const topic = topicData.get({ plain: true });
 
     res.render('topic', {
+      ...topic,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/topic/:id/comment', async (req, res) => {
+  try {
+    const topicData = await Topic.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const topic = topicData.get({ plain: true });
+
+    res.render('topicaddingcomment', {
       ...topic,
       logged_in: req.session.logged_in
     });
@@ -61,7 +87,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
+    console.log(user);
     res.render('dashboard', {
       ...user,
       logged_in: true
