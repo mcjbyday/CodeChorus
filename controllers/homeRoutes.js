@@ -37,6 +37,12 @@ router.get('/topic/:id', async (req, res) => {
         },
         {
           model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },
+          ]
         },
       ],
     });

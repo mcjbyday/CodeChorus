@@ -18,7 +18,7 @@
       </h1>
       <h3 style="font-style:italic">Your trusted home for tech tawk.</h3>
       <nav>
-        <!-- Conditionally render login or logout links -->
+        <!-- login / logout display -->
         {{#if logged_in}}
         <a href="/">Home</a> |
         <a href="/dashboard">Dashboard</a> |
@@ -29,7 +29,7 @@
       </nav>
     </header>
     <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
+      <!-- layout -->
       {{{ body }}}
     </main>
     <footer>
@@ -37,7 +37,7 @@
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
+  <!-- logged in -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
