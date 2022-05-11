@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/topic/:id', async (req, res) => {
+router.get('/topic/:id', withAuth, async (req, res) => {
   try {
     const topicData = await Topic.findByPk(req.params.id, {
       include: [

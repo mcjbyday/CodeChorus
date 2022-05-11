@@ -5,18 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CordChorus</title>
+  <link rel="grace-note icon" type="image/png" href="../icons/music-solid.svg"/>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
+<body class="bg-dark">
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="display-flex justify-space-between align-center p-2 m-5">
       <h1>
-        <span role="img" aria-label="invader">👾</span>
+        <span><img class="grace-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Grace_note.svg/1200px-Grace_note.svg.png"></span>
         <a href="/">CodeChorus</a>
       </h1>
-      <h3 style="font-style:italic">Your trusted home for tech tawk.</h3>
+      <h3 style="font-style:italic;font-weight:lighter;">Your trusted home for tech tawk.</h3>
       <nav>
         <!-- login / logout display -->
         {{#if logged_in}}
@@ -32,8 +33,9 @@
       <!-- layout -->
       {{{ body }}}
     </main>
-    <footer>
-      
+    <footer class="footer">
+      <span>Made with logic and arithmetic</span>
+      <a href="https://github.com/mcjbyday/CodeChorus" target="_blank"><span class="githubicon"></span></a>
     </footer>
   </div>
 

@@ -1,24 +1,112 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+:root {
+  --darkest: rgb(115, 100, 88, 0.15);
+  --secondDarkest: rgb(115, 100, 88, 0.25);
+  --offDark: rgb(179, 156, 137, 0.9);
+  --flatText: rgb(217, 189, 167, 0.85);
+  --lightest: rgb(255, 223, 196, 1);
+  --grayTone: rgb(242, 211, 186, 0.95);
+  --textcolor1: rgb(12, 11, 8);
+
+  --hover1: rgb(94, 155, 166, 1);
+  --hover2: rgb(187, 234, 242, 1);
 }
 
+body, h1, h2, h3, h4, h5, h6, p, fieldset, form, ul, ol, dl, dir, menu, blockquote, dd {
+  margin-left: 0px;
+  padding-left: 0px;
+  text-indent: 0;
+}
+
+* {
+  border-radius: 10px;
+}
+
+body {
+  color: var(--flatText);
+  /* background-color: var(--offDark); */
+  text-decoration: none;
+  
+  
+}
+
+header {
+  background-color: var(--darkest);
+}
+
+a {
+  color: inherit;
+  text-shadow: 4px 4px 2px var(--darkest);
+}
+
+a:link { 
+  text-decoration: none; 
+  color: var(--flatText);
+}
+
+a:visited { 
+  text-decoration: none; 
+}
+
+a:hover { 
+  text-decoration: none;
+  color:var(--hover2);
+
+}
+
+a:active { 
+    text-decoration: none; 
+}
+
+input[type="text"], input[type="password"], .form-input, #topic-desc, #comment-body, textarea {
+  background-color : var(--secondDarkest); 
+  color: var(--lightest);
+  
+}
 .no-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: var(--flatText);
   text-decoration: none;
   font-size: 100%;
 }
 
 .no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+  text-decoration: none;
+  color:var(--hover2);
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.grace-img {
+  max-height: 1em;
+  filter: invert(0.4);
+}
+
+
+.footer {
+  align-self: center; 
+  padding: 1%;
+  margin-top: 10em;
+}
+
+
+/* external link to open source repository that governs the page */
+.githubicon {
+  height: 1em;
+  content: URL("../icons/GitHub-Mark-64px.png");
+  object-fit: contain;
+  filter: drop-shadow(4px 4px 2px var(--darkest));
+
+  filter: invert(0.7);
+  /* border-radius: 15px; */
+  /* border: 1px solid --textcolor1; */
+  /* color: white; */
+  /* background-color: rgb(255, 255, 255, 0.8); */
+}
+
+
+.githubicon:hover, .githubicon:active {
+  box-shadow: inset 15px 15px var(--hover2);
+  /* filter: drop-shadow(2px 2px 2px var(--hover2)); */
+  /* filter: invert(0.5); */
 }
