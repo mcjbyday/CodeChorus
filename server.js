@@ -7,6 +7,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
+const { response } = require('express');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
@@ -37,6 +38,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
+// Wildcard route to direct users to a 404 page
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/pages/404.html'))
+);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('The port is now up and we are listening...'));

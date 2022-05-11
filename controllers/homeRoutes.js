@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Topic, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const path = require('path');
 
 
 router.get('/', async (req, res) => {
@@ -47,9 +48,9 @@ router.get('/topic/:id', withAuth, async (req, res) => {
         },
       ],
     });
-
+    
     const topic = topicData.get({ plain: true });
-
+    console.log("mytopic", topic)
     res.render('topic', {
       ...topic,
       myTopicId: topic.id,
@@ -58,7 +59,8 @@ router.get('/topic/:id', withAuth, async (req, res) => {
     });
   } catch (err) {
     console.log(err)
-    res.status(500).json(err);
+    res.sendFile(path.join(__dirname, '../public/pages/404.html'));
+    // res.status(500).json(err);
   }
 });
 
@@ -82,7 +84,7 @@ router.get('/topic/:id/comment', async (req, res) => {
     });
   } catch (err) {
     console.log(err)
-    res.status(500).json(err);
+    res.sendFile(path.join(__dirname, '../public/pages/404.html'));
   }
 });
 
@@ -106,7 +108,8 @@ router.get('/topic/:id/edit', async (req, res) => {
     });
   } catch (err) {
     console.log(err)
-    res.status(500).json(err);
+    res.sendFile(path.join(__dirname, '../public/pages/404.html'));
+    // res.status(500).json(err);
   }
 });
 
@@ -128,7 +131,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
   } catch (err) {
     console.log(err)
-    res.status(500).json(err);
+    res.sendFile(path.join(__dirname, '../public/pages/404.html'));
   }
 });
 
@@ -143,3 +146,5 @@ router.get('/login', (req, res) => {
 });
 
 module.exports = router;
+
+
