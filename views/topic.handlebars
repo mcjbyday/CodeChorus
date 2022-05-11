@@ -9,52 +9,47 @@
     <p>{{post_body}}</p>
   </div>
 </div>
-{{#if Comments.length}}
-{{#each Comments as |comment| }}
-<div class="display-flex">
-  <div class="col-3"></div>
-  <div class="text-center col-md-6 comment display-flex justify-space-between m-2 p-1"
-    style="background-color:var(--darkest);">
+<div class="mt-5">
+  {{#if Comments.length}}
+  {{#each Comments as |comment| }}
+  <div class="display-flex">
+    <div class="col-1"></div>
+    <div class="col-10 comment display-flex justify-space-between m-2 p-1">
 
-    <p>
-      {{comment.comment_body}}
-    </p>
-
-
-    <p style="font-size:small;">Posted by {{comment.User.name}} on {{format_date comment.date_created}}</p>
-
+      <p>{{comment.comment_body}}</p>
+      <p style="font-size:small;">Posted by {{comment.User.name}} on {{format_date comment.date_created}}</p>
+    </div>
+    <div class="col-1"></div>
   </div>
-  <div class="col-3"></div>
-</div>
-{{/each}}
-{{/if}}
-
-<div class="display-flex justify-space-evenly align-items-center">
-  <div class="col-3"></div>
-  {{#if logged_in}}
-  {{#equality_test User.id thisUser}}
-    <p class="align-items-center col-2">
-      <button class="btn btn-primary" id="commentTopicBtn" data-id="{{id}}">Comment</button>
-    </p>
-    <p class="align-items-center col-2">
-      <button class="btn btn-secondary" id="editTopicBtn" data-id="{{id}}">Edit post</button>
-    </p>
-    <p class="align-items-center col-2">
-      <button class="btn btn-danger" id="deleteTopicBtn" data-id="{{id}}">Delete topic</button>
-    </p>
-  {{else}}
-      <p class="align-items-center col-6">
-        <button class="btn btn-primary" id="commentTopicBtn" data-id="{{id}}">Comment</button>
-      </p>
-  {{/equality_test}}
-  
-  {{else}}
-  <a class="col-3" href="/login">
-    <button class="btn btn-primary">Login to comment on topics like this!</button>
-  </a>
+  {{/each}}
   {{/if}}
-  <div class="col-6"></div>
 </div>
+
+{{!-- {{#if logged_in}} --}}
+<div class="display-flex flex-nowrap align-stretch align-items-center">
+  <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
+  {{#equality_test User.id thisUser}}
+
+  <div
+    class="container display-flex justify-center align-center align-items-center flex-nowrap col-xl-10 col-lg-10 col-md-10 col-sm-12">
+    <button class="postbuttons btn btn-primary" id="commentTopicBtn" data-id="{{myTopicId}}">Comment</button>
+    <button class="postbuttons btn btn-secondary" id="editTopicBtn" data-id="{{myTopicId}}">Edit</button>
+    <button class="postbuttons btn btn-danger" id="deleteTopicBtn" data-id="{{myTopicId}}">Delete</button>
+  </div>
+  {{else}}
+  <div
+    class="container display-flex justify-center align-center align-items-center flex-nowrap col-xl-10 col-lg-10 col-md-10 col-sm-10">
+    <button class="postbuttons btn btn-primary" id="commentTopicBtn" data-id="{{myTopicId}}">Comment</button>
+  </div>
+  {{/equality_test}}
+  <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
+</div>
+
+{{!-- {{else}}
+<a class="col-3" href="/login">
+  <button class="btn btn-primary">Login to comment on topics like this!</button>
+</a>
+{{/if}} --}}
 
 
 <script src="/js/topic.js"></script>

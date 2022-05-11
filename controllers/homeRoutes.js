@@ -52,6 +52,7 @@ router.get('/topic/:id', withAuth, async (req, res) => {
 
     res.render('topic', {
       ...topic,
+      myTopicId: topic.id,
       thisUser: req.session.user_id,
       logged_in: req.session.logged_in
     });

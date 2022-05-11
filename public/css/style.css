@@ -62,6 +62,15 @@ input[type="text"], input[type="password"], .form-input, #topic-desc, #comment-b
   color: var(--lightest);
   
 }
+
+.postbuttons {
+  margin: 2%;
+  justify-self: center;
+  align-self: center;
+  /* display: flex;
+  flex-wrap: nowrap; */
+}
+
 .no-button {
   background: none;
   border: none;
@@ -80,6 +89,10 @@ input[type="text"], input[type="password"], .form-input, #topic-desc, #comment-b
 .grace-img {
   max-height: 1em;
   filter: invert(0.4);
+}
+
+.comment {
+  background-color:var(--darkest);
 }
 
 
