@@ -29,19 +29,27 @@
 {{/each}}
 {{/if}}
 
-<div class="display-flex justify-space-between align-items-center">
-  <div class="col-5"></div>
+<div class="display-flex justify-space-evenly align-items-center">
+  <div class="col-3"></div>
   {{#if logged_in}}
-  <p class="align-items-center col-2">
-    <button class="btn btn-primary" id="commentTopicBtn" data-id="{{id}}">Comment on this topic</button>
-  </p>
-  {{!-- {{#if }}
-  <p>
-    <button class="btn btn-secondary" id="editTopicBtn" data-id="{{id}}">Edit this post's content</button>
-  </p> --}}
-  {{!-- {{/if }} --}}
+  {{#equality_test User.id thisUser}}
+    <p class="align-items-center col-2">
+      <button class="btn btn-primary" id="commentTopicBtn" data-id="{{id}}">Comment</button>
+    </p>
+    <p class="align-items-center col-2">
+      <button class="btn btn-secondary" id="editTopicBtn" data-id="{{id}}">Edit post</button>
+    </p>
+    <p class="align-items-center col-2">
+      <button class="btn btn-danger" id="deleteTopicBtn" data-id="{{id}}">Delete this topic</button>
+    </p>
   {{else}}
-  <a class="col-5" href="/login">
+      <p class="align-items-center col-6">
+        <button class="btn btn-primary" id="commentTopicBtn" data-id="{{id}}">Comment</button>
+      </p>
+  {{/equality_test}}
+  
+  {{else}}
+  <a class="col-3" href="/login">
     <button class="btn btn-primary">Login to comment on topics like this!</button>
   </a>
   {{/if}}

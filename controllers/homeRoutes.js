@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Topic, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+
 router.get('/', async (req, res) => {
   try {
     // Get all topics and JOIN with user data
@@ -29,11 +30,11 @@ router.get('/', async (req, res) => {
 
 router.get('/topic/:id', withAuth, async (req, res) => {
   try {
+    console.log(req.session)
     const topicData = await Topic.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: User
         },
         {
           model: Comment,
@@ -51,6 +52,7 @@ router.get('/topic/:id', withAuth, async (req, res) => {
 
     res.render('topic', {
       ...topic,
+      thisUser: req.session.user_id,
       logged_in: req.session.logged_in
     });
   } catch (err) {
