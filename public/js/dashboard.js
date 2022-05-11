@@ -22,40 +22,44 @@ const newFormHandler = async (event) => {
   }
 };
 
+const CommentTopicBtnHandler = async (event) => {  
+  // await console.log('Is anything happening')
+  const id = event.target.getAttribute('data-id');
+  // console.log("displayme" + event.target.dataset.id);
+  // console.log("my dataid\n" + event.target.getAttribute('data-id'));
+  // await console.log('Is anything happening')
+  // const topic_id = document.querySelector('input[name="post-id"]').value;
 
+  await document.location.replace(`/topic/${id}/comment`);
+};
 
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
-    
-//     const response = await fetch(`/api/topics/${id}`, {
-//       method: 'DELETE',
-//     });
+const EditTopicBtnHandler = async (event) => {
+  const id = event.target.getAttribute('data-id');
 
-//     if (response.ok) {
-//       document.location.replace('/dashboard');
-//     } else {
-//       alert('Failed to delete topic');
-//     }
-//   }
-// };
-
-// const updateButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//       const id = event.target.getAttribute('data-id');
+  await document.location.replace(`/topic/${id}/edit`);
   
-//       const response = await fetch(`/api/topics/${id}`, {
-//         method: 'PUT',
-//       });
-  
-//       if (response.ok) {
-//         document.location.replace(`/topics/${id}`);
-//       } else {
-//         alert('Failed to edit topic');
-//       }
-//     }
+};
 
-// }
+const DeleteTopicBtnHandler = async (event) => {  
+  
+  const confirmation = await window.confirm("Are you sure you'd like to delete this topic?");
+  
+  if (event.target.hasAttribute('data-id') && confirmation) {
+    // if (event.target.hasAttribute('data-id')) {
+      const id = event.target.getAttribute('data-id');
+      
+      const response = await fetch(`/api/topics/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to delete topic');
+      }
+    }
+};
+
 
 // dashboard 
 // click on your post, brings you to an edit form 
@@ -65,17 +69,17 @@ document
   .querySelector('.new-topic-form')
   .addEventListener('submit', newFormHandler);
 
-// document
-//   .querySelector('#delBtn')
-//   .addEventListener('click', delButtonHandler);
+  document
+  .querySelector('.editTopicBtn')
+  .addEventListener('click', EditTopicBtnHandler);
+  
+  
+  document
+  .querySelector('.deleteTopicBtn')
+  .addEventListener('click', DeleteTopicBtnHandler);
+  
+  
+  document
+  .querySelector('.commentTopicBtn')
+  .addEventListener('click', CommentTopicBtnHandler);
 
-// document
-//   .querySelector('#updBtn')
-//   .addEventListener('click', updateButtonHandler);
-
-
-
-//modification of data happens in API
-// rendering all occurs in home routes
-// put request in topicRoutes
-// refresh page wwhen an edit is submitted

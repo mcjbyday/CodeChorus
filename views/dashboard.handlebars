@@ -31,23 +31,7 @@
     <h2>Posts you've created:</h2>
   </div>
 </div>
-{{!-- {{#each Topics as |topic| }}
-<div class="row mb-4 topic">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
 
-      <a href="/topic/{{topic.id}}">{{topic.title}}</a>
-    </h2>
-    <p>Created by you on {{format_date topic.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{topic.post_body}}
-    </p>
-  </div>
-</div>
-{{/each}} --}}
 <!-- Loop over each object in the topics array -->
 {{#each Topics as |topic| }}
 <div class="align-center topic display-flex flex-column p-3">
@@ -61,6 +45,17 @@
     {{topic.post_body}}
   </div>
 </div>
+<div class="display-flex flex-nowrap align-stretch align-items-center">
+  <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
+  <div
+    class="container display-flex justify-center align-center align-items-center flex-nowrap col-xl-10 col-lg-10 col-md-10 col-sm-12">
+    <button class="postbuttons btn btn-primary commentTopicBtn" data-id="{{topic.id}}">Comment</button>
+    <button class="postbuttons btn btn-secondary editTopicBtn" data-id="{{topic.id}}">Edit</button>
+    <button class="postbuttons btn btn-danger deleteTopicBtn" data-id="{{topic.id}}">Delete</button>
+  </div>
+  <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
+</div>
+
 {{/each}}
 
 
