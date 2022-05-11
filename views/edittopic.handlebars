@@ -1,18 +1,25 @@
 
-<form class="form edit-topic-form">
-  <div class="form-group">
-    <label for="topic-name">Topic:</label>
-    <input class="form-input" type="text" id="topic-name" name="topic-name" value="{{title}}" />{{title}}
+<div class="row mt-4">
+  <div class="col-3"></div>
+  <div class="justify-content-center align-self-center col-6">
+    <h3>Update Topic</h3>
+
+    <form class="form new-topic-form">
+      <div class="form-group">
+        <label for="topic-name">Topic name:</label>
+        <input class="form-input" type="text" id="topic-name" name="topic-name" value="{{title}}"/>
+      </div>
+      <div class="form-group">
+        <label for="topic-desc">Post:</label>
+        <textarea class="form-input" id="topic-desc" name="topic-desc" >{{post_body}}</textarea>
+        <input type="hidden" value="{{id}}" name="post-id"> 
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="updateTopicBtn">Update</button>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="topic-desc">Post:</label>
-    <textarea class="form-input" id="topic-desc" name="topic-desc">{{post_body}}</textarea>
-  </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-secondary">Update</button>
-  </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-secondary">Delete</button>
-  </div>
-</form>
+  <div class="col-3"></div>
 </div>
+
+<script src="/js/updatetopic.js"></script>

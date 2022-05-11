@@ -85,6 +85,31 @@ router.get('/topic/:id/comment', async (req, res) => {
   }
 });
 
+
+router.get('/topic/:id/edit', async (req, res) => {
+  try {
+    const topicData = await Topic.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const topic = topicData.get({ plain: true });
+
+    res.render('edittopic', {
+      ...topic,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {

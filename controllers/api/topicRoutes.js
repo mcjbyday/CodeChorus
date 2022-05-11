@@ -15,6 +15,23 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const topic = await Topic.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!topic[0]) {
+      res.status(404).json({ message: 'No topic could be found by that id...' });
+      return;
+    }
+    res.status(200).json({ message: 'The requested tag was updated' });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const topicData = await Topic.destroy({

@@ -1,7 +1,7 @@
 <div class="align-center topic display-flex flex-column p-3">
   <div class="text-center col-md-8 display-flex justify-space-between m-2 p-3"
     style="background-color:var(--secondDarkest)">
-    <h2>{{title}}</h2>
+    <h2>{{title}} {{id}}</h2>
     <p>Created by {{User.name}} on {{format_date date_created}}</p>
     {{!-- <p>{{{get_emoji}}}</p> --}}
   </div>
@@ -40,7 +40,7 @@
       <button class="btn btn-secondary" id="editTopicBtn" data-id="{{id}}">Edit post</button>
     </p>
     <p class="align-items-center col-2">
-      <button class="btn btn-danger" id="deleteTopicBtn" data-id="{{id}}">Delete this topic</button>
+      <button class="btn btn-danger" id="deleteTopicBtn" data-id="{{id}}">Delete topic</button>
     </p>
   {{else}}
       <p class="align-items-center col-6">

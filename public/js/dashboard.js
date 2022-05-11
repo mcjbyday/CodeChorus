@@ -24,38 +24,38 @@ const newFormHandler = async (event) => {
 
 
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+// const delButtonHandler = async (event) => {
+//   if (event.target.hasAttribute('data-id')) {
+//     const id = event.target.getAttribute('data-id');
     
-    const response = await fetch(`/api/topics/${id}`, {
-      method: 'DELETE',
-    });
+//     const response = await fetch(`/api/topics/${id}`, {
+//       method: 'DELETE',
+//     });
 
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to delete topic');
-    }
-  }
-};
+//     if (response.ok) {
+//       document.location.replace('/dashboard');
+//     } else {
+//       alert('Failed to delete topic');
+//     }
+//   }
+// };
 
-const updateButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
+// const updateButtonHandler = async (event) => {
+//   if (event.target.hasAttribute('data-id')) {
+//       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/topics/${id}`, {
-        method: 'PUT',
-      });
+//       const response = await fetch(`/api/topics/${id}`, {
+//         method: 'PUT',
+//       });
   
-      if (response.ok) {
-        document.location.replace(`/topics/${id}`);
-      } else {
-        alert('Failed to edit topic');
-      }
-    }
+//       if (response.ok) {
+//         document.location.replace(`/topics/${id}`);
+//       } else {
+//         alert('Failed to edit topic');
+//       }
+//     }
 
-}
+// }
 
 // dashboard 
 // click on your post, brings you to an edit form 
@@ -65,13 +65,13 @@ document
   .querySelector('.new-topic-form')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('#delBtn')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('#delBtn')
+//   .addEventListener('click', delButtonHandler);
 
-document
-  .querySelector('#updBtn')
-  .addEventListener('click', updateButtonHandler);
+// document
+//   .querySelector('#updBtn')
+//   .addEventListener('click', updateButtonHandler);
 
 
 
