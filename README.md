@@ -7,7 +7,7 @@
 
 -[Description](#project-desc)
 
--[See How It Works](#project-tech)
+-[See It Deployed!](#project-live)
 
 -[Screen Captures](#project-captures)
 
@@ -27,15 +27,15 @@ CodeChorus is a technology forum that provides individuals interested in technol
 
 <p style='text-align: right;'><a href="#project-title">Back to Top</a></p>
 
-<h2 id="project-live">See it in action!</h2>
+<h2 id="project-live">See it deployed live!</h2>
 
-[See the application in action here]/)
+[See application live here!](https://codechorusforum.herokuapp.com/)
 
 <h2 id="project-captures">Screen captures</h2>
 
 | Image | Description |
 | --- | ----------- |
-|  ![]() | Application in use |
+|  ![Code Chorus](./public/icons/codechorus.gif) | Application in use |
 
 
 <h2 id="project-tech">Technology</h2>
