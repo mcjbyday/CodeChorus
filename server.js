@@ -19,7 +19,10 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'You have heard that it was said, but I say to you',
-  cookie: {},
+  cookie: {
+    // Stored in milliseconds (30 minutes)
+    maxAge: 1800000,
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
