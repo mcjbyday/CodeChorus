@@ -51,11 +51,29 @@
     class="container display-flex justify-center align-center align-items-center flex-nowrap col-xl-10 col-lg-10 col-md-10 col-sm-12">
     <button class="postbuttons btn btn-primary commentTopicBtn" data-id="{{topic.id}}">Comment</button>
     <button class="postbuttons btn btn-secondary editTopicBtn" data-id="{{topic.id}}">Edit</button>
-    <button class="postbuttons btn btn-danger deleteTopicBtn" data-id="{{topic.id}}">Delete</button>
+    <button class="postbuttons btn btn-danger deleteTopicBtn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal-{{topic.id}}" >Delete</button>
   </div>
   <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
 </div>
 
+  <!-- Modal -->
+  <div class="modal fade " id="confirmDeleteModal-{{topic.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel-{{topic.id}}">Confirm Deletion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you'd like to permanently remove this post and its associated data?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger confirmDeleteBtn" data-id="{{topic.id}}" >Delete Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
 {{/each}}
 
 

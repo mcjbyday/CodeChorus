@@ -1,3 +1,5 @@
+
+
 :root {
   --darkest: rgb(115, 100, 88, 0.15);
   --secondDarkest: rgb(115, 100, 88, 0.25);
@@ -10,6 +12,7 @@
   --hover1: rgb(94, 155, 166, 1);
   --hover2: rgb(187, 234, 242, 1);
 }
+
 
 body, h1, h2, h3, h4, h5, h6, p, fieldset, form, ul, ol, dl, dir, menu, blockquote, dd {
   margin-left: 0px;
@@ -25,12 +28,22 @@ body {
   color: var(--flatText);
   /* background-color: var(--offDark); */
   text-decoration: none;
-  
+  min-height: 100vh;
   
 }
 
 header {
   background-color: var(--darkest);
+}
+
+.btn-close {
+  background-color: var(--flatText);
+}
+
+
+.modal-dialog, .modal-content, .modal-header, .modal-title, .modal-body, .modal-footer {
+  opacity: 1;
+  background-color: rgb(115, 100, 88, 1);;
 }
 
 a {

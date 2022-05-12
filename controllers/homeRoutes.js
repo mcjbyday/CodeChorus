@@ -50,10 +50,8 @@ router.get('/topic/:id', withAuth, async (req, res) => {
     });
     
     const topic = topicData.get({ plain: true });
-    console.log("mytopic", topic)
     res.render('topic', {
       ...topic,
-      myTopicId: topic.id,
       thisUser: req.session.user_id,
       logged_in: req.session.logged_in
     });

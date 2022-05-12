@@ -25,10 +25,6 @@ const newFormHandler = async (event) => {
 const CommentTopicBtnHandler = async (event) => {  
   // await console.log('Is anything happening')
   const id = event.target.getAttribute('data-id');
-  // console.log("displayme" + event.target.dataset.id);
-  // console.log("my dataid\n" + event.target.getAttribute('data-id'));
-  // await console.log('Is anything happening')
-  // const topic_id = document.querySelector('input[name="post-id"]').value;
 
   await document.location.replace(`/topic/${id}/comment`);
 };
@@ -41,31 +37,32 @@ const EditTopicBtnHandler = async (event) => {
 };
 
 const DeleteTopicBtnHandler = async (event) => {  
+  console.log(" testing testing..")
+  // const confirmation = await window.confirm("Are you sure you'd like to delete this topic?");
   
-  const confirmation = await window.confirm("Are you sure you'd like to delete this topic?");
   
-  if (event.target.hasAttribute('data-id') && confirmation) {
-    // if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
-      
-      const response = await fetch(`/api/topics/${id}`, {
-        method: 'DELETE',
-      });
+  const id = event.target.getAttribute('data-id');
+  
+  const response = await fetch(`/api/topics/${id}`, {
+    method: 'DELETE',
+  });
 
-      if (response.ok) {
-        document.location.replace('/dashboard');
-      } else {
-        alert('Failed to delete topic');
-      }
-    }
+  if (response.ok) {
+    document.location.replace('/dashboard');
+  } else {
+    alert('Failed to delete topic');
+  }
+    
 };
 
+function initializedEventListeners() {
+  let deleteButtons = document.querySelectorAll('.confirmDeleteBtn');
 
-// dashboard 
-// click on your post, brings you to an edit form 
+  for (let i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].addEventListener("click", DeleteTopicBtnHandler);
+  }
 
-
-document
+  document
   .querySelector('.new-topic-form')
   .addEventListener('submit', newFormHandler);
 
@@ -73,13 +70,10 @@ document
   .querySelector('.editTopicBtn')
   .addEventListener('click', EditTopicBtnHandler);
   
-  
-  document
-  .querySelector('.deleteTopicBtn')
-  .addEventListener('click', DeleteTopicBtnHandler);
-  
-  
   document
   .querySelector('.commentTopicBtn')
   .addEventListener('click', CommentTopicBtnHandler);
 
+}
+
+initializedEventListeners();
