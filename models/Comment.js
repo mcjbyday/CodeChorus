@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comment extends Model {}
-
+// it isn't necessary to link userId or topicId at this step
 Comment.init(
   {
     id: {
@@ -19,20 +19,6 @@ Comment.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     }
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
-    // topic_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'topic',
-    //     key: 'id',
-    //   },
-    // },
   },
   {
     sequelize,

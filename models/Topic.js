@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Topic extends Model {}
 
+// no need to link userId at this stage
 Topic.init(
   {
     id: {
@@ -23,13 +24,6 @@ Topic.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
   },
   {
     sequelize,

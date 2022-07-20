@@ -3,7 +3,6 @@ const updateButtonHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#topic-name').value.trim();
-  // const needed_funding = document.querySelector('#topic-funding').value.trim();
   const post_body = document.querySelector('#topic-desc').value.trim();
   const topic_id = document.querySelector('input[name="post-id"]').value;
 

@@ -26,7 +26,7 @@ router.put('/:id', withAuth, async (req, res) => {
       res.status(404).json({ message: 'No topic could be found by that id...' });
       return;
     }
-    res.status(200).json({ message: 'The requested tag was updated' });
+    res.status(200).json({ message: 'The requested topic was updated' });
   } catch (err) {
     res.status(500).json(err);
   }

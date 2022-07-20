@@ -13,6 +13,7 @@ Topic.belongsTo(User, {
 
 Comment.belongsTo(Topic, {
   foreignKey: 'topic_id'
+
 });
 
 Topic.hasMany(Comment, {

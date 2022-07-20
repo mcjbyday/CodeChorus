@@ -23,7 +23,6 @@ const newFormHandler = async (event) => {
 };
 
 const CommentTopicBtnHandler = async (event) => {  
-  // await console.log('Is anything happening')
   const id = event.target.getAttribute('data-id');
 
   await document.location.replace(`/topic/${id}/comment`);
@@ -37,10 +36,8 @@ const EditTopicBtnHandler = async (event) => {
 };
 
 const DeleteTopicBtnHandler = async (event) => {  
-  console.log(" testing testing..")
-  // const confirmation = await window.confirm("Are you sure you'd like to delete this topic?");
   
-  
+  // provide confirmation to user via a modal when they express intent to delete a topic 
   const id = event.target.getAttribute('data-id');
   
   const response = await fetch(`/api/topics/${id}`, {

@@ -7,7 +7,7 @@ class User extends Model {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
-
+// hooks are used to ensure encrypted passwords
 User.init(
   {
     id: {

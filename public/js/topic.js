@@ -21,7 +21,7 @@ function initializedEventListeners() {
 }
 
 const CommentTopicBtnHandler = async (event) => {  
-  // await console.log('Is anything happening')
+  // handle comment adding 
   const currURL = document.location.href;
   await document.location.replace(currURL+`/comment`);
 };
@@ -32,7 +32,7 @@ const EditTopicBtnHandler = async (event) => {
 };
 
 const DeleteTopicBtnHandler = async (event) => {
-  // grab the topic id from the URL
+  // take the current topic's id from the URL. display a modal, if confirmed, delete the topic
   const topicId = parseInt(document.location.pathname.split("/").slice(-1))
   
   if (event.target.id == "confirmDeleteBtn") {
@@ -51,5 +51,5 @@ const DeleteTopicBtnHandler = async (event) => {
 
 };
 
-  
+// bundle all event listeners into one function on load  
 initializedEventListeners();

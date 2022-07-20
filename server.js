@@ -18,7 +18,7 @@ const hbs = exphbs.create({ helpers });
 
 
 const sess = {
-  secret: 'You have heard that it was said, but I say to you',
+  secret: 'New super secret string to get things online',
   cookie: {
     // Stored in milliseconds (30 minutes)
     maxAge: 1800000,
